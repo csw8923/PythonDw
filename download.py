@@ -23,7 +23,7 @@ urls=re.findall(r"href=.*?title",ss,re.U|re.S)
 
 for i in urls:
    i1 = i.replace('href="','') #过滤替换href="
-   i2 = i1.replace('" title1111','') #过滤替换" title
+   i2 = i1.replace('" title','') #过滤替换" title
    #print i
    #采集内容页面
    specific = urllib2.urlopen(i2).read()
