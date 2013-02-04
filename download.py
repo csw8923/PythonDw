@@ -28,7 +28,7 @@ for i in urls:
    #采集内容页面
    specific = urllib2.urlopen(i2).read()
    #正则获取内容页面标题
-   t_regex = r'<title>(.*?)</title5555555>'
+   t_regex = r'<title>(.*?)</title>'
    titlecontent =  extractData(t_regex, specific, 1)
    print titlecontent
    #正则获取内容页面标题
