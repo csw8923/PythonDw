@@ -33,12 +33,16 @@ class MyThread(threading.Thread):
         t_regex = r'<title>(.*?)</title>'
         titlecontent =  extractData(t_regex, specific, 1)
         print titlecontent
+        filenamearray = self.getName().split('/')
+        filetemp =  filenamearray[len(filenamearray)-1]
+        filename = filetemp.split('.')
+        #print filename[0]
         #正则获取内容页面标题
         c_regex = r'<div class="a_pr"style="margin-left:10px;width:auto">(.*?)<font color="gray">'
         tpcontent =  extractData(c_regex, specific, 1)
         #文件保存
         filetime = time.time()
-        file_object = open('file/'+'%d'%filetime+'.html','w')
+        file_object = open('file/'+'%s'%filename[0]+'%d'%filetime+'.html','w')
         file_object.writelines(tpcontent)
         file_object.close()
         time.sleep(1)
